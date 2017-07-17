@@ -35,6 +35,10 @@ export default class Test extends Component {
     super(props)
   }
 
+  submit = () => {
+    this.props.navigation.navigate('Finished')
+  }
+
 	render() {
 		return (
 			<View style = {styles.container}>
@@ -79,9 +83,11 @@ export default class Test extends Component {
               return result
             })()
           }
-          <TouchableOpacity style = {styles.submitButton}>
+          <Spacer height = {50} />
+          <TouchableOpacity style = {styles.submitButton} onPress = {this.submit}>
             <Text style = {styles.submitButtonText}>Submit Test</Text>
           </TouchableOpacity>
+          <Spacer height = {50} />
         </ScrollView>
 			</View>
 		)

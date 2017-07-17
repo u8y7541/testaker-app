@@ -71,7 +71,6 @@ export default styles = StyleSheet.create({
   },
   submitButton: {
     alignSelf: 'center',
-    margin: 50,
     padding: 30,
     borderRadius: 100,
     backgroundColor: '#4295f4'
