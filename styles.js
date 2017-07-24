@@ -47,7 +47,9 @@ export default styles = StyleSheet.create({
   },
   answerChoice: {
     flex: 1,
+    minWidth: '60%',
     alignItems: 'center',
+    alignSelf: 'flex-start',
     margin: 10,
     borderRadius: 20,
     borderStyle: 'solid',
@@ -56,7 +58,9 @@ export default styles = StyleSheet.create({
   },
   selectedAnswerChoice: {
     flex: 1,
+    minWidth: '60%',
     alignItems: 'center',
+    alignSelf: 'flex-start',
     margin: 10,
     borderRadius: 20,
     borderStyle: 'solid',

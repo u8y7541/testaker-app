@@ -20,7 +20,7 @@ export default class Homescreen extends Component {
     return (
       <View style = {styles.container}>
         <Text style = {styles.title}>
-          Welcome to TestsRUs! Enter your test ID and your name below:
+          Enter your test ID and your name below:
         </Text>
         <Spacer height = {50} />
         <View style = {styles.innerContainer}>
@@ -29,7 +29,7 @@ export default class Homescreen extends Component {
         </View>
         <Spacer height = {50} />
         <TouchableOpacity style = {styles.iconContainer} onPress = {this.goToTest}>
-          <Image source = {require('../Arrow.png')} style = {styles.icon} />
+          <Image source = {require('../img/Arrow.png')} style = {styles.icon} />
         </TouchableOpacity>
       </View>
     );

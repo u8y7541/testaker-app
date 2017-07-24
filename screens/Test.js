@@ -9,8 +9,9 @@ import {
 } from 'react-native';
 import styles from '../styles';
 import Spacer from '../components/Spacer';
+import Loader from '../components/Loader';
 
-const test = [
+/*const test = [
   {
     question: "What is 2 + 2?",
     answerChoices: [1, 2, 3, 4]
@@ -26,13 +27,27 @@ const test = [
   {
     question: "What is binomial expansion? Explain."
   }
-]
+]*/
+
 
 export default class Test extends Component {
 	static navigationOptions = {title: "Test"};
 
   constructor(props) {
     super(props)
+    this.state = {ready: false}
+    this.alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  }
+
+  async componentWillMount() {
+    this.test = []
+    await fetch("http://13.58.54.246/api?id=exampleTest", {method: "POST"})
+      .then((response) => response.json())
+      .then((json) => {
+        this.test = json
+      })
+      .catch((error) => {throw error})
+    this.setState({ready: true})
   }
 
   submit = () => {
@@ -40,6 +55,9 @@ export default class Test extends Component {
   }
 
 	render() {
+    if (!this.state.ready) {
+      return (<Loader />)
+    }
 		return (
 			<View style = {styles.container}>
         <ScrollView>
@@ -47,7 +65,7 @@ export default class Test extends Component {
             (()=>{
               counter = 1
               result = []
-              for (q of test) {
+              for (q of this.test) {
                 result.push(
                   <View key = {counter} style = {styles.testQuestionContainer}>
                     <Text style = {styles.testQuestion}>{counter + '. ' + q.question}</Text>
@@ -68,7 +86,7 @@ export default class Test extends Component {
                             <TouchableOpacity key = {counter2}
                                               style = {styles.answerChoice}
                                               onPress = {()=>{}}>
-                              <Text style = {styles.answer}>{choice}</Text>
+                              <Text style = {styles.answer}>{this.alphabet[counter2] + ') ' + choice}</Text>
                             </TouchableOpacity>
                           )
                           counter2++;
