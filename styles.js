@@ -30,6 +30,7 @@ export default styles = StyleSheet.create({
   iconContainer: {
     alignItems: 'center',
     padding: 20,
+    margin: 10,
     borderRadius: 100,
     borderStyle: 'dashed',
     borderWidth: 5,
@@ -37,7 +38,7 @@ export default styles = StyleSheet.create({
   },
   testQuestionContainer: {
     padding: 20,
-    width: '100%',
+    minWidth: '100%',
     borderStyle: 'solid',
     borderBottomWidth: 2,
     borderColor: 'black'
@@ -47,9 +48,7 @@ export default styles = StyleSheet.create({
   },
   answerChoice: {
     flex: 1,
-    minWidth: '60%',
     alignItems: 'center',
-    alignSelf: 'flex-start',
     margin: 10,
     borderRadius: 20,
     borderStyle: 'solid',
@@ -58,9 +57,7 @@ export default styles = StyleSheet.create({
   },
   selectedAnswerChoice: {
     flex: 1,
-    minWidth: '60%',
     alignItems: 'center',
-    alignSelf: 'flex-start',
     margin: 10,
     borderRadius: 20,
     borderStyle: 'solid',
@@ -73,14 +70,8 @@ export default styles = StyleSheet.create({
     color: 'black',
     alignSelf: 'center'
   },
-  submitButton: {
-    alignSelf: 'center',
-    padding: 30,
-    borderRadius: 100,
-    backgroundColor: '#4295f4'
-  },
   submitButtonText: {
     fontSize: 25,
-    color: 'white'
+    color: 'green'
   }
 });
