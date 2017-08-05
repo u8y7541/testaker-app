@@ -11,6 +11,6 @@ const App = StackNavigator({
   Home: {screen: Homescreen},
   Test: {screen: Test},
   Finished: {screen: Finished}
-})
+}, {headerMode: 'none'})
 
 AppRegistry.registerComponent('Testaker', () => App);

@@ -21,7 +21,7 @@ export default class TestQuestion extends Component {
                   (()=>{
                     let result2 = []
                     let counter2 = 0
-                    if (this.props.q.answerChoices == undefined) {
+                    if (this.props.q.answerChoices.length === 0) {
                       if (this.props.q.freeResponse) {
                         return (<TextInput multiline = {true}
                         				placeholder = "Enter your answer (free response)"

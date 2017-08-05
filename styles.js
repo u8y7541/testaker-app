@@ -25,7 +25,7 @@ export default styles = StyleSheet.create({
   },
   icon: {
     width: 50,
-    height: 47,
+    height: 50,
   },
   iconContainer: {
     alignItems: 'center',

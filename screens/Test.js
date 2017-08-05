@@ -19,7 +19,7 @@ export default class Test extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {ready: false}
+    this.state = {ready: false, grading: false}
     this.alphabet = 'abcdefghijklmnopqrstuvwxyz'
   }
 
@@ -48,16 +48,20 @@ export default class Test extends Component {
 
   submit = async () => {
     const { testId, name } = this.props.navigation.state.params;
+    this.setState({grading: true})
     const response = await fetch('http://13.58.54.246/submitTest?' + `id=${testId}&name=${name}&answers=${JSON.stringify(answers)}`, {method: 'POST'})
     const result = await response.json()
-    console.log(result)
 
-    this.props.navigation.navigate('Finished')
+    this.props.navigation.navigate('Finished', {result})
+    this.setState({grading: false})
   }
 
   render() {
     if (!this.state.ready) {
       return (<Loader />)
+    }
+    if (this.state.grading) {
+      return (<Loader text = "Grading" />)
     }
     return (
       <View style = {styles.container}>

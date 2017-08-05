@@ -27,7 +27,7 @@ export default class Loader extends Component {
     })
 		return (
 			<View style = {styles.container}>
-        <Text style = {styles.title}>Loading</Text>
+        <Text style = {styles.title}>{this.props.text === undefined? "Loading" : this.props.text}</Text>
 				<Animated.Image 
           source = {require('../img/Loader.png')}
           style = {{width: 100, height: 100, transform: [{rotate: rotation}]}} />
