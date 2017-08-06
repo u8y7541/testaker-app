@@ -3,7 +3,8 @@ import {
   View,
   ScrollView,
   Text,
-  Animated
+  Animated,
+  TouchableOpacity
 } from 'react-native';
 import styles from '../styles';
 import Result from '../components/Result';
@@ -22,13 +23,16 @@ export default class Finished extends Component {
     if(this._confettiView) {
        this._confettiView.startConfetti();
     }
-    //Animated.timing(this.state.fadeIn, {toValue: 1, duration: 1000}).start()
   }
 
   componentWillUnmount() {
       if (this._confettiView) {
           this._confettiView.stopConfetti();
       }
+  }
+
+  goToHomescreen = () => {
+    this.props.navigation.navigate('Home')
   }
 
   render() {
@@ -59,6 +63,11 @@ export default class Finished extends Component {
           })()}
         </ScrollView>
         <Text style = {styles.title}>Free response questions have not been graded yet.</Text>
+        <Spacer height = {20} />
+        <TouchableOpacity style = {styles.innerContainer} onPress = {this.goToHomescreen}>
+          <Text style = {styles.title}>Take another test</Text>
+        </TouchableOpacity>
+        <Spacer height = {40} />
       </View>
     )
   }

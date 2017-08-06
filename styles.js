@@ -16,6 +16,7 @@ export default styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
+    fontFamily: 'ComputerModernRoman',
     textAlign: 'center',
     margin: 10,
     color: 'black'
@@ -44,7 +45,9 @@ export default styles = StyleSheet.create({
     borderColor: 'black'
   },
   testQuestion: {
-    fontSize: 20
+    fontSize: 25,
+    fontFamily: 'ComputerModernRoman',
+    color: 'black'
   },
   answerChoice: {
     flex: 1,
@@ -66,12 +69,15 @@ export default styles = StyleSheet.create({
     backgroundColor: 'lightgreen'
   },
   answer: {
-    fontSize: 20,
+    fontSize: 25,
+    padding: 5,
+    fontFamily: 'ComputerModernRoman',
     color: 'black',
     alignSelf: 'center'
   },
   submitButtonText: {
     fontSize: 25,
+    fontFamily: 'ComputerModernRoman',
     color: 'green'
   }
 });
